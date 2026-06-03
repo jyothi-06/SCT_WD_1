@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HotelStay - Hotel Booking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav id="navbar">
+        <div class="logo">HotelStay</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#rooms">Rooms</a></li>
+            <li><a href="#amenities">Amenities</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="#booking" class="btn">Book Now</a>
+    </nav>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Find Your Perfect Stay</h1>
+            <p>Experience luxury, comfort, and unforgettable hospitality.</p>
+            <a href="#booking" class="hero-btn">Book Your Room</a>
+        </div>
+    </section>
+    <section id="rooms" class="rooms">
+        <h2>Our Rooms</h2>
+        <div class="room-container">
+            <div class="room-card" onclick="showRoom('deluxe')">
+                <img src="images/deluxe-room.jpg" alt="Deluxe Room">
+                <h3>Deluxe Room</h3>
+                <p>Elegant room with modern facilities and premium comfort.</p>
+            </div>
+            <div class="room-card" onclick="showRoom('suite')">
+                <img src="images/suite-room.jpg" alt="Suite Room">
+                <h3>Suite Room</h3>
+                <p>Luxury suite with spacious interiors and exclusive services.</p>
+            </div>
+            <div class="room-card" onclick="showRoom('family')">
+                <img src="images/family-room.jpg" alt="Family Room">
+                <h3>Family Room</h3>
+                <p>Perfect choice for families with extra space and comfort.</p>
+            </div>
+        </div>
+    </section>
+    <section id="amenities" class="amenities">
+        <h2>Our Amenities</h2>
+        <!-- Image Cards -->
+        <div class="amenity-container">
+            <div class="amenity-card">
+                <img src="images/pool.jpg">
+                <h3>Swimming Pool</h3>
+            </div>
+            <div class="amenity-card">
+                <img src="images/restaurant.jpg">
+                <h3>Restaurant</h3>
+            </div>
+            <div class="amenity-card">
+                <img src="images/gym.jpg">
+                <h3>Fitness Center</h3>
+            </div>
+            <div class="amenity-card">
+                <img src="images/parking.jpg">
+                <h3>Free Parking</h3>
+            </div>
+        </div>
+        <!-- Text Amenities -->
+        <div class="text-amenities">
+            <div class="text-card">📶 Free WiFi</div>
+            <div class="text-card">🏥 Medical Room</div>
+            <div class="text-card">🚗 Airport Pickup</div>
+            <div class="text-card">🛎 Room Service</div>
+        </div>
+    </section>
+    <section id="booking" class="booking">
+        <h2>Book Your Room</h2>
+        <form class="booking-form">
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email Address" required>
+            <input type="tel" placeholder="Phone Number" required>
+            <label>Check-In Date</label>
+            <input type="date" required>
+            <label>Check-Out Date</label>
+            <input type="date" required>
+            <select required>
+                <option value="">Select Room Type</option>
+                <option>Deluxe Room</option>
+                <option>Suite Room</option>
+                <option>Family Room</option>
+            </select>
+            <!-- Payment Method -->
+            <select id="paymentMethod" onchange="showPaymentFields()" required>
+                <option value="">Select Payment Method</option>
+                <option value="upi">UPI</option>
+                <option value="credit">Credit Card</option>
+                <option value="debit">Debit Card</option>
+                <option value="arrival">Pay on Arrival</option>
+            </select>
+            <!-- UPI Payment -->
+            <div id="upiField" style="display:none;">
+                <input type="text" placeholder="Enter UPI ID">
+                <button type="button" class="pay-btn" onclick="processPayment()">Proceed to Payment</button>
+            </div>        
+            <!-- Card Payment -->
+            <div id="cardField" style="display:none;">
+                <input type="text" placeholder="Card Number">
+                <input type="text" placeholder="Card Holder Name">
+                <button type="button" class="pay-btn" onclick="processPayment()">Proceed to Payment</button>
+            </div>
+            <!-- Arrival Message -->
+            <div id="arrivalField" style="display:none;">
+                <p class="arrival-msg">Payment will be collected during hotel check-in.</p>
+            </div>
+            <button type="submit">Confirm Booking</button>
+        </form>
+    </section>
+    <section id="testimonials" class="testimonials">
+        <h2>What Our Guests Say</h2>
+        <div class="testimonial-container">
+            <div class="testimonial-card">
+                <p>"Excellent service and comfortable rooms. Highly recommended!"</p>
+                <h4>★★★★★</h4>
+                <span>- Rahul Sharma</span>
+            </div>
+            <div class="testimonial-card">
+                <p>"The swimming pool and restaurant were amazing. Great experience!"</p>
+                <h4>★★★★★</h4>
+                <span>- Priya Reddy</span>
+            </div>
+            <div class="testimonial-card">
+                <p>"Friendly staff, clean rooms, and easy booking process."</p>
+                <h4>★★★★★</h4>
+                <span>- Arjun Kumar</span>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <p>📧 Email: info@hotelstay.com</p>
+        <p>📞 Phone: +91 98765 43210</p>
+        <p>📍 Address: Hyderabad, Telangana, India</p>
+    </section>
+    <footer>
+        <p>&copy; 2026 HotelStay. All Rights Reserved.</p>
+    </footer>
+    <div id="roomPopup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+            <h2 id="popupTitle"></h2>
+            <p id="popupDetails"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

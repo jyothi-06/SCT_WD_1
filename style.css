@@ -1,0 +1,461 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body{
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Navbar */
+#navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    transition: 0.4s ease;
+    z-index: 1000;
+}
+
+#navbar.scrolled{
+    background: #0f172a;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+}
+
+.logo{
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.nav-links{
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.nav-links a{
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover{
+    color: #fbbf24;
+}
+
+.btn{
+    text-decoration: none;
+    background: #fbbf24;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn:hover{
+    background: white;
+    transform: scale(1.05);
+}
+
+/* Hero Section */
+.hero{
+    min-height: 100vh;
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    ),
+    url("images/host.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero-content{
+    color: white;
+    max-width: 700px;
+}
+
+.hero-content h1{
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+}
+
+.hero-content p{
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+}
+
+.hero-btn{
+    text-decoration: none;
+    display: inline-block;
+    background: #fbbf24;
+    color: black;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.hero-btn:hover{
+    background: white;
+    transform: translateY(-3px);
+}
+
+/* Common Sections */
+section{
+    padding: 80px 8%;
+}
+
+section h2{
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+/* Rooms */
+.room-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 25px;
+}
+
+.room-card{
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: 0.4s;
+}
+
+.room-card:hover{
+    transform: translateY(-10px);
+}
+
+.room-card img{
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.room-card h3{
+    padding: 15px;
+}
+
+.room-card p{
+    padding: 0 15px 20px;
+}
+
+/* Amenities Section */
+.amenities{
+    background: #f8fafc;
+}
+
+/* IMAGE CARDS GRID */
+.amenity-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+/* IMAGE CARD */
+.amenity-card{
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: 0.3s ease;
+    text-align: center;
+}
+
+.amenity-card:hover{
+    transform: translateY(-8px);
+}
+
+.amenity-card img{
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.amenity-card h3{
+    padding: 15px;
+    font-size: 1.1rem;
+}
+
+/* TEXT AMENITIES ROW */
+.text-amenities{
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.text-card{
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: 0.3s ease;
+}
+
+.text-card:hover{
+    transform: translateY(-5px);
+}
+
+/* Responsive */
+@media(max-width: 992px){
+
+    .amenity-container,
+    .text-amenities{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media(max-width: 576px){
+
+    .amenity-container,
+    .text-amenities{
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* Booking Section */
+.booking{
+    background: #ffffff;
+    padding: 80px 8%;
+}
+
+.booking-form{
+    max-width: 700px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.booking-form input,
+.booking-form select{
+    padding: 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.booking-form label{
+    font-weight: 600;
+}
+
+.booking-form button{
+    background: #fbbf24;
+    color: black;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.booking-form button:hover{
+    background: #f59e0b;
+}
+
+/* Contact */
+.contact{
+    text-align: center;
+}
+
+.contact p{
+    margin: 12px 0;
+    font-size: 1.1rem;
+}
+
+/* Footer */
+footer{
+    background: #0f172a;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Responsive */
+@media(max-width: 768px){
+
+    #navbar{
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .nav-links{
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero-content h1{
+        font-size: 2.3rem;
+    }
+
+    .hero-content p{
+        font-size: 1rem;
+    }
+
+    section h2{
+        font-size: 2rem;
+    }
+}
+
+@media(max-width: 480px){
+
+    .hero-content h1{
+        font-size: 1.8rem;
+    }
+
+    .logo{
+        font-size: 1.4rem;
+    }
+
+    .nav-links a{
+        font-size: 0.9rem;
+    }
+
+    .hero-btn{
+        padding: 12px 20px;
+    }
+}
+
+.popup{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.popup-content{
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.close-btn{
+    float: right;
+    font-size: 30px;
+    cursor: pointer;
+}
+/* Testimonials */
+.testimonials{
+    background: #f8fafc;
+}
+
+.testimonial-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.testimonial-card{
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: 0.3s ease;
+}
+
+.testimonial-card:hover{
+    transform: translateY(-8px);
+}
+
+.testimonial-card p{
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.testimonial-card h4{
+    color: #fbbf24;
+    margin-bottom: 10px;
+}
+
+.testimonial-card span{
+    font-weight: 600;
+    color: #555;
+}
+
+/* Payment Fields */
+#upiField,
+#cardField,
+#arrivalField{
+    display: none;
+    margin-top: 10px;
+}
+
+#upiField input,
+#cardField input{
+    width: 100%;
+    margin-top: 10px;
+}
+
+.pay-btn{
+    width: 100%;
+    margin-top: 12px;
+    background: #16a34a;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.pay-btn:hover{
+    background: #15803d;
+}
+
+.arrival-msg{
+    background: #eff6ff;
+    color: #1d4ed8;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 10px;
+}
